@@ -27,7 +27,7 @@ function WriteMessage() {
     const patchMsg = async() => {
         console.log("patch");
         await axios.patch("http://52.79.242.117:3000/messages").then(response=>{
-            console.log(response.data);
+            alert(response.data);
             navigate('/main');
         })
     }
