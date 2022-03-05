@@ -45,12 +45,12 @@
 
   width: 91px;
   height: 44px;
-  line-height: 34px;
+  line-height: 20px;
   margin-left: 7.5px;
   margin-top: 8px;
   font-family: 'Damion', cursive;
   color: white;
-  font-size: 36px;
+  font-size: 24px;
 
   text-align: center;
 }
@@ -62,11 +62,11 @@
 
   width: 91px;
   height: 44px;
-  line-height: 34px;
+  line-height: 20px;
   margin-left: 7.5px;
   margin-top: 8px;
   font-family: 'Damion', cursive;
-  font-size: 36px;
+  font-size: 24px;
 
   text-align: center;
 }
@@ -74,4 +74,9 @@
 @keyframes rotate_smile{
     from{transform: rotate(45deg);}
     to{transform: rotate(-45deg);}
+}
+
+@keyframes rotate_picture1{
+  from{transform: rotate(15deg);}
+  to{transform: rotate(-15deg);}
 }

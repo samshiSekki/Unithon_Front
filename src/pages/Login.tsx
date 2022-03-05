@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {useNavigate} from 'react-router';
 import {connect, useDispatch} from 'react-redux';
 
@@ -42,6 +42,7 @@ function Login() {
           <Link to='/signup'>
             <SigninBtn src='img/login_assets/signup_btn.png'/>
           </Link>
+          <Picture1 src='img/login_assets/picture1.png'/>
         </LoginNote>
         <BigFlower src='img/signup_assets/Group 73.png'/>
         <SmallFlower src='img/signup_assets/Group 12415.png'/>
@@ -118,10 +119,27 @@ const BigFlower : any = styled.img`
   position: absolute;
   margin-top: 190px;
 `;
+
+const large_img = keyframes`
+  	50% {
+    	transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+`;
+
+
+const rotate_img = keyframes`
+	100% {
+    	transform: rotate(360deg);
+    }
+`;
 const SmallFlower : any = styled.img`
 position: absolute;
   margin-top: 654px;
   margin-left: 157px;
+  animation: ${rotate_img} 10s linear infinite;
 `;
 const Circles : any = styled.img`
 position: absolute;
@@ -135,6 +153,8 @@ const SmallHeart : any = styled.img`
   position: absolute;
   margin-top: 933px;
   margin-left: 1676px;
+  animation: ${large_img} 2s linear infinite;
+  transform-origin: 50% 50%;
 `;
 const BigHeart : any = styled.img`
   position: absolute;
@@ -151,5 +171,12 @@ const Smile : any = styled.img`
   margin-top: 257px;
   margin-left: 1518px;
   animation: rotate_smile 5s linear infinite;
+  animation-direction: alternate;
+`;
+const Picture1 : any = styled.img`
+  position: absolute;
+  margin-top: 121px;
+  margin-left: 49px;
+  animation: rotate_picture1 4s linear infinite;
   animation-direction: alternate;
 `;
