@@ -3,21 +3,29 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import {useNavigate} from 'react-router';
+import {connect, useDispatch} from 'react-redux';
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [myNickName, setMyNickName] = useState("");
   const [myPW, setMyPW] = useState("");
 
-  const loginBtnClickHandler = async() => {
+  const handleLogin = async(response: any)=>{
+      axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`;
+      dispatch({type: 'change', payload:{changeData: response.data.userId, variableType: 'userID'}});
+      navigate('/main');
+  }
 
+  const loginBtnClickHandler = async() => {
     await axios.post("http://52.79.242.117:3000/users/signin",{
       "nickname": myNickName,
       "password": myPW
     }).then(response => {
+      console.log(response.data);
       response.data.success === true
-      ? navigate('/')
+      ? handleLogin(response)
       : null
     });
 
@@ -31,6 +39,9 @@ function Login() {
           <InputNick onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{setMyNickName(e.target.value)}}/>
           <InputPW type='password'onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{setMyPW(e.target.value)}}/>
           <LoginBtn src='img/login_assets/login_btn.png' onClick={loginBtnClickHandler}/>
+          <Link to='/signup'>
+            <SigninBtn src='img/login_assets/signup_btn.png'/>
+          </Link>
         </LoginNote>
         <BigFlower src='img/signup_assets/Group 73.png'/>
         <SmallFlower src='img/signup_assets/Group 12415.png'/>
@@ -45,7 +56,13 @@ function Login() {
   )
 }
 
-export default Login
+function f1(storeValue: any){
+  return {
+    storeValue : storeValue
+  }
+}
+
+export default connect(f1)(Login);
 const InputNick : any = styled.input`
 position: absolute;
 width: 189px;
@@ -53,7 +70,7 @@ padding-left: 10px;
 padding-right: 10px;
 height: 59px;
 margin-left: 962px;
-margin-top: 253px;
+margin-top: 237px;
 font-size : 25px;
 background: #C4C4C4;
 border-radius: 5px;
@@ -68,13 +85,18 @@ font-size : 25px;
 background: #C4C4C4;
 border-radius: 5px;
 margin-left: 962px;
-margin-top: 394px;
+margin-top: 348.56px;
 `;
 
 const LoginBtn : any = styled.img`
   position: absolute;
-  margin-top: 555px;
+  margin-top: 488px;
   margin-left: 851px;
+`;
+const SigninBtn : any = styled.img`
+  position: absolute;
+  margin-top: 581px;
+  margin-left: 876px;
 `;
 
 const LoginBody : any = styled.div`

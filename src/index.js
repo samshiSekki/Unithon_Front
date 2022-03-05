@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import { createStore } from 'redux';
+import axios from 'axios';
 
 let defaultStoreValue = {
   userID : ''
@@ -15,7 +16,7 @@ function storeChanger(storeValue = defaultStoreValue, action){
   if(action.type === 'change'){
     let copy = storeValue;
 
-    switch(action.payload.type){
+    switch(action.payload.variableType){
       case 'userID' :
         copy.userID = action.payload.changeData;
         break;
