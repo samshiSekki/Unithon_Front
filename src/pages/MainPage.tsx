@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 
@@ -35,6 +36,9 @@ function MainPage(props: any) {
                 <PaperPlane src='img/mainpage_assets/paper_plane.png'/>
             </ChalkBoard>
             <Cabinet src='img/mainpage_assets/Cabinet.png'/>
+            <Link to='/write'>
+            <div>편지쓰기로 이동</div>
+            </Link>
         </MainPageBody>
     </>
   )
