@@ -4,12 +4,37 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+
+let defaultStoreValue = {
+  userID : ''
+}
+
+function storeChanger(storeValue = defaultStoreValue, action){
+  if(action.type === 'change'){
+    let copy = storeValue;
+
+    switch(action.payload.type){
+      case 'userID' :
+        copy.userID = action.payload.changeData;
+        break;
+    }
+    return copy;
+  }
+  else
+    return storeValue;
+}
+
+let store = createStore(storeChanger);
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
     <App />
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

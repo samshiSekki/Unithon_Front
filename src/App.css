@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {
@@ -35,4 +35,43 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.selectedGen{
+  float: left;
+  border: 0.5px solid;
+  border-radius: 5px;
+  background: #282828;
+
+  width: 91px;
+  height: 44px;
+  line-height: 34px;
+  margin-left: 7.5px;
+  margin-top: 8px;
+  font-family: 'Damion', cursive;
+  color: white;
+  font-size: 36px;
+
+  text-align: center;
+}
+
+.unSelectedGen{
+  float: left;
+  border: 0.5px solid;
+  border-radius: 5px;
+
+  width: 91px;
+  height: 44px;
+  line-height: 34px;
+  margin-left: 7.5px;
+  margin-top: 8px;
+  font-family: 'Damion', cursive;
+  font-size: 36px;
+
+  text-align: center;
+}
+
+@keyframes rotate_smile{
+    from{transform: rotate(45deg);}
+    to{transform: rotate(-45deg);}
 }
