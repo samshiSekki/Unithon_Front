@@ -41,7 +41,7 @@ const CheckNoteTitle = () => {
 
     return (
         <Container>
-            {modalVisible && <MyNoteModal setVisible={setModalVisible} modalContent={message}/>}
+            {modalVisible && <MyNoteModal setVisible={setModalVisible} modalContent={message.content? message.content : ''} modalTitle={message.keyword}/>}
             <div style={{width:'1920px', height:'1080px', overflow:'hidden', backgroundColor:'#84D5D0', position:'relative'}}>
                 <img style={{position:'absolute', zIndex:2}} src={ImgMyNote}></img>
                 <img onClick={()=>onClickButton()} style={{position:'absolute', zIndex:3, marginLeft:'30px', marginTop:'30px'}} src={ImgLeft}></img>

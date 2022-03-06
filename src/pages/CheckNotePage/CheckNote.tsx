@@ -13,16 +13,27 @@ import axios from 'axios';
 const CheckNote = (props:any) => {
     const [changeDivName,setChangeDivName] = useState('imageDefault');
     const [changeDivName2,setChangeDivName2] = useState('imageDefault');
+    const [paperVisible, setPaperVisible] = useState<boolean>(true);
+    const [paperMassVisible, setPaperMassVisible] = useState<boolean>(true);
+
     const navigate = useNavigate();
 
     const onClickPost = () => {
         setChangeDivName('imageLarge');
-        setChangeDivName2('PostImageLarge');
-        navigate("/checknotetitle");
+        setPaperVisible(false);
+        setPaperMassVisible(false);
+        setTimeout(function(){navigate("/checknotetitle");},3000);
     };
 
+    const onClickRight = () => {
+        navigate("/write");
+    }
+
     const onClickPaper = () => {
-        navigate("/mynote");
+        setChangeDivName('imageLarge2');
+        setPaperVisible(false);
+        setPaperMassVisible(false);
+        setTimeout(function(){navigate("/mynote");},3000);
     };
 
     return (
@@ -32,13 +43,13 @@ const CheckNote = (props:any) => {
                     <div style={{display:'flex', justifyContent:'center', alignItems:'center', marginTop:'159px'}}>
                         <div style={{width:'1229px', height:'762px',position:'relative'}}>
                             <KeyImg className={changeDivName} src={ImgCabinet}></KeyImg>
-                            <PostImg className={changeDivName2} onClick={()=>onClickPost()} src={ImgPost} style={{position:'absolute',left:'414px',top:'181px'}}></PostImg>
-                            <img onClick={()=>onClickPaper()} src={ImgPaper} style={{position:'absolute',left:'414px',top:'516px'}}></img>
+                            {paperMassVisible && <PostImg className={changeDivName2} onClick={()=>onClickPost()} src={ImgPost} style={{position:'absolute',left:'420px',top:'181px'}}></PostImg>}
+                            {paperVisible && <img onClick={()=>onClickPaper()} src={ImgPaper} style={{position:'absolute',left:'424px',top:'516px'}}></img>}
                         </div>
                     </div>
                     <div style={{display:'flex', flexDirection:'row-reverse',position:'relative'}}>
                         <img style={{position:'absolute',bottom:'-440px', right:'-170px'}} src={ImgTable}></img>
-                        <img style={{position:'absolute', cursor:'pointer'}} src={ImgRight}></img>
+                        <img onClick={()=>onClickRight()} style={{position:'absolute', cursor:'pointer'}} src={ImgRight}></img>
                     </div>
                 </div>
         </Container>
@@ -61,19 +72,30 @@ const click_img = keyframes`
     }
 `;
 
+const click_img3 = keyframes`
+	100% {
+    transform: scale(2.7) translate(160px,-180px);
+    
+    }
+`;
+
+
 const KeyImg= styled.img.attrs(props=>({className:props.className}))`
   /* &:hover{
     transform: scale(1.3);
     transition: transform .5s;
   } */
   &.imageLarge{
-    animation: ${click_img} 3s linear forwards;
+    animation: ${click_img} 2s linear forwards;
+  }
+  &.imageLarge2{
+    animation: ${click_img3} 2s linear forwards;
   }
 `;
 
 const click_img2 = keyframes`
 	100% {
-    transform: scale(2.7) translate(160px, 60px);
+    transform: scale(2.7) translate(160px,90px);
     
     }
 `;
@@ -84,6 +106,6 @@ const PostImg= styled.img.attrs(props=>({className:props.className}))`
     transition: transform .5s;
   } */
   &.PostImageLarge{
-    animation: ${click_img2} 3s linear forwards;
+    animation: ${click_img2} 2s linear forwards;
   }
 `;

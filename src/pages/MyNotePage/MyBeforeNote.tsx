@@ -41,12 +41,12 @@ const CheckNoteTitle = () => {
             <div style={{width:'1920px', height:'1080px', overflow:'hidden', backgroundColor:'#84D5D0', position:'relative'}}>
                 <img style={{position:'absolute', zIndex:2}} src={ImgBackground2}></img>
                 <img onClick={()=>onClickButton()} style={{position:'absolute', zIndex:3, marginLeft:'30px', marginTop:'30px'}} src={ImgLeft}></img>
-                <div>
+                <div style={{position:'absolute', zIndex:4, marginLeft:'30px',left:'630px',overflow:'scroll', height:'800px', top:'120px', display:'grid', gridTemplateColumns:'1fr 1fr'}}>
                     {message && message.map((item:any, index:number) => {
                         return (
                         <>
-                            <img src={ImgNote} onClick={()=>setModalVisible(true)}></img>
-                            {modalVisible && <MyNoteModal setVisible={setModalVisible} modalContent={item}/>}
+                            <img src={ImgNote} style={{marginBottom:'50px'}} onClick={()=>setModalVisible(true)}></img>
+                            {modalVisible && <MyNoteModal setVisible={setModalVisible} modalContent={item.content}  modalTitle={item.keyword}/>}
                         </>
                         );
                     })}

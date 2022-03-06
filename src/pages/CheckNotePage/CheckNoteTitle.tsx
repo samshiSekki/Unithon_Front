@@ -36,8 +36,8 @@ const CheckNoteTitle = () => {
             <div style={{width:'1920px', height:'1080px', overflow:'hidden', backgroundColor:'#84D5D0', position:'relative'}}>
                 <img style={{position:'absolute', zIndex:2}} src={ImgBackground1}></img>
                 <img onClick={()=>onClickButton()} style={{position:'absolute', zIndex:3, marginLeft:'30px', marginTop:'30px'}} src={ImgLeft}></img>
-                <p style={{position:'absolute', zIndex:3, top:'450.24px', left:'848px', fontSize:'24px'}}>오늘의 주제</p>
-                <p style={{position:'absolute', zIndex:3, top:'480.24px', left:'848px'}}>{message}</p>
+                <Title style={{position:'absolute', zIndex:3, top:'450.24px', left:'848px', fontSize:'48px', fontWeight:'bold'}}>오늘의 주제</Title>
+                <Title style={{position:'absolute', zIndex:3, top:'510.24px', left:'848px', fontSize:'36px'}}>{message}</Title>
             </div>
         </Container>
     )
@@ -50,4 +50,8 @@ export default CheckNoteTitle;
 const Container = styled.div`
     width:100vw;
     overflow: hidden;
+`;
+
+const Title = styled.p`
+    font-family: 'Nanum Brush Script', cursive;
 `;

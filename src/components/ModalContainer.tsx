@@ -19,7 +19,9 @@ const ModalContainer = ({children, setVisible, useHeader, footer, title, width =
 				<Section>
 					<Article>
                         <img style={{position:'relative'}} src={ImgPaper}></img>
-						<p style={{position:'absolute',top:'500px', left:'500px', fontSize:'24px'}}>{children}</p>
+						<div style={{width:'300px'}}>
+							<Title style={{position:'absolute',top:'300px', left:'300px', fontSize:'24px'}}>{children}</Title>
+						</div>
 					</Article>
 				</Section>
 			</Container>
@@ -74,4 +76,13 @@ const Article = styled.article<{removePadding?: boolean}>`
 		margin: 24px 0px 56px;
 	}
 	padding: ${props => props.removePadding ? '0px' : '56px 78.5px'};
+`;
+
+const Title = styled.p`
+    font-family: 'Nanum Brush Script', cursive;
+	width: 300px;
+	
+    word-wrap: break-word;
+    word-break:break-all;
+	white-space: pre-line;
 `;
