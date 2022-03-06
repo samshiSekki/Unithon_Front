@@ -24,7 +24,7 @@ function Login() {
       "password": myPW
     }).then(response => {
       console.log(response.data);
-      response.data.success === true
+      return response.data.success === true
       ? handleLogin(response)
       : null
     });

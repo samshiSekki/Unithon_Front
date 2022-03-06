@@ -14,19 +14,20 @@ import ImgFlower4 from '../../asset/img/Landingpage/img-flower4.svg';
 
 import ImgSmile1 from '../../asset/img/Landingpage/img-smile1.svg';
 import ImgSmile2 from '../../asset/img/Landingpage/img-smile2.svg';
-import ImgWords1 from '../../asset/img/Landingpage/img-words1.svg';
 import ImgHeart1 from '../../asset/img/Landingpage/img-heart1.svg';
 import ImgHeart2 from '../../asset/img/Landingpage/img-heart2.svg';
 import ImgHeart3 from '../../asset/img/Landingpage/img-heart3.svg';
 
 import ImgImage1 from '../../asset/img/Landingpage/img-image1.svg';
 import ImgImage2 from '../../asset/img/Landingpage/img-image2.svg';
-import ImgLockHeart from '../../asset/img/Landingpage/img-lockHeart.svg';
+import ImgLockHeart from '../../asset/img/Landingpage/img-lock-heart.svg';
 import ImgHeartHalf from '../../asset/img/Landingpage/img-heart-half.svg';
 
 import ImgKeyHole from '../../asset/img/Landingpage/img-key-hole.svg';
 import ImgKey from '../../asset/img/Landingpage/img-key.svg';
 
+import ImgText1 from '../../asset/img/Landingpage/img-text1.svg';
+import ImgText2 from '../../asset/img/Landingpage/img-text2.svg';
 
 const LandingPage = () => {
   const [changeDivName2,setChangeDivName2] = useState('key');
@@ -54,6 +55,7 @@ const LandingPage = () => {
             <div style={{position:'absolute', top:'138px', left:'15%'}}>
               <div style={{position:'relative'}}>
                 <img style={{zIndex:2, position:'absolute'}} src={ImgDiary}></img>
+                <img style={{zIndex:4, position:'absolute', left:'107px', top:'234px'}} src={ImgText2}></img>
                 <ImgSize2 style={{zIndex:3, position:'absolute', top:'558px', left:'144px', width:'138.69px'}} src={ImgHeart3}></ImgSize2>
                 <ImgSize style={{zIndex:4, position:'absolute', left:'242px', top:'28px'}} src={ImgFlower4}></ImgSize>
                 <SmileImg1 style={{zIndex:4, position:'absolute',width:'46.95px', top:'175px', left:'547px'}} src={ImgSmile1}></SmileImg1>
@@ -72,7 +74,7 @@ const LandingPage = () => {
               <div>
                 <SmileImg1 style={{position:'absolute',bottom:'-120px'}} src={ImgSmile1}></SmileImg1>
                 <SmileImg2 style={{position:'absolute', left:'200px', bottom:'40px'}} src={ImgSmile2}></SmileImg2>
-                <img style={{position:'absolute', left:'192px', top:'-80px'}} src={ImgWords1}></img>
+                <img style={{position:'absolute', left:'192px', top:'-80px'}} src={ImgText1}></img>
                 <img style={{position:'absolute', left:'-50px',top:'150px'}} src={ImgHeart1}></img>
               </div>
               <div style={{display:'flex', position:'absolute', top:'580px'}}>
